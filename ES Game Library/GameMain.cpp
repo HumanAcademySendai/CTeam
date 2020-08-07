@@ -43,6 +43,8 @@ void GameMain::Finalize()
 /// </returns>
 int GameMain::Update()
 {
+	KeyboardBuffer key_buffer = Keyboard->GetBuffer();
+
 	KeyboardState key = Keyboard->GetState();
 
 	// TODO: Add your update logic here
@@ -73,6 +75,11 @@ int GameMain::Update()
 
 	}
 
+	
+
+	if (key_buffer.IsPressed(Keys_Space)) {
+		return GAME_SCENE(new ResultScene);
+	}
 
 	return 0;
 }

@@ -36,6 +36,13 @@ int TitleScene::Update()
 {
     // TODO: Add your update logic here
 
+	KeyboardBuffer key_buffer = Keyboard->GetBuffer();
+
+	// TODO: Add your update logic here
+
+	if (key_buffer.IsPressed(Keys_Space)) {
+		return GAME_SCENE(new GameMain);
+	}
 
 	return 0;
 }

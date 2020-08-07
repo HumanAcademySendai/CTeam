@@ -1,6 +1,7 @@
 // #include "Extension\DirectX11\DXGraphics11.hpp"
 #include "StdAfx.h"
 #include "GameMain.h"
+#include <fstream>
 
 #include <fstream>
 

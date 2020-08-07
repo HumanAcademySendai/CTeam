@@ -2,6 +2,8 @@
 #include "StdAfx.h"
 #include "GameMain.h"
 
+#include <fstream>
+
 /// <summary>
 /// Allows the game to perform any initialization it needs to before starting to run.
 /// This is where it can query for any required services and load all of your content.
@@ -11,6 +13,11 @@ bool GameMain::Initialize()
 {
 	// TODO: Add your initialization logic here
 	WindowTitle(_T("ES Game Library"));
+
+	Player = GraphicsDevice.CreateSpriteFromFile(_T("chara1.png"));
+
+	player_x = 0;
+	player_y = 0;
 
 
 	return true;
@@ -35,7 +42,35 @@ void GameMain::Finalize()
 /// </returns>
 int GameMain::Update()
 {
+	KeyboardState key = Keyboard->GetState();
+
 	// TODO: Add your update logic here
+
+	if (key.IsKeyDown(Keys_Up)) {
+
+		player_y -= 5;
+
+	}
+
+	if (key.IsKeyDown(Keys_Down)) {
+
+		player_y += 5;
+
+	}
+
+
+	if (key.IsKeyDown(Keys_Right)) {
+
+
+		player_x += 5;
+	}
+
+
+	if (key.IsKeyDown(Keys_Left)) {
+
+		player_x -= 5;
+
+	}
 
 
 	return 0;
@@ -53,7 +88,7 @@ void GameMain::Draw()
 
 
 	SpriteBatch.Begin();
-
+	SpriteBatch.Draw(*Player, Vector3(player_x, player_y, 0));
 
 	SpriteBatch.End();
 

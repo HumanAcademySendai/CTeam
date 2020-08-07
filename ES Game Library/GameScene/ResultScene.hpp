@@ -1,17 +1,19 @@
 #pragma once
 
-#include "ESGLib.h"
-#include "GameScene/GameScene.hpp"
+#include "GameScene.hpp"
+#include "../ESGLib.h"
 
-class GameMain : public CGameScene {
+class TemplateScene : public CGameScene {
 public:
-	GameMain() : DefaultFont(GraphicsDevice.CreateDefaultFont())
+	TemplateScene()
 	{
 //		ContentRootDirectory(_T("Content"));
 	}
 
-	virtual ~GameMain()
+	virtual ~TemplateScene()
 	{
+		Finalize();
+
 #ifdef _INC_SQUIRREL
 		Squirrel.ReleaseAllScripts();
 #endif
@@ -40,11 +42,8 @@ public:
 		GraphicsDevice.ReleaseAllModels();
 		GraphicsDevice.ReleaseAllVertexBuffers();
 		GraphicsDevice.ReleaseAllEffects();
-
-		Finalize();
 	}
 
-public:
 	virtual bool Initialize();
 
 	virtual int  Update();
@@ -52,14 +51,11 @@ public:
 
 private:
 	void Finalize();
-	FONT DefaultFont;
 
 private:
 	// 変数宣言
-	SPRITE Player;
-	float player_x, player_y;
 
 
-	// 関数宣言
+	// 関数プロトタイプ
 
 };

@@ -1,6 +1,7 @@
 // #include "Extension\DirectX11\DXGraphics11.hpp"
 #include "StdAfx.h"
 #include "GameMain.h"
+#include <fstream>
 
 /// <summary>
 /// Allows the game to perform any initialization it needs to before starting to run.
